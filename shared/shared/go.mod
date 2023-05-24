@@ -1,4 +1,4 @@
-module github.com/neazzosa/common-util-go/shared/shared
+module github.com/neazossa/common-util-go/shared/shared
 
 go 1.20
 

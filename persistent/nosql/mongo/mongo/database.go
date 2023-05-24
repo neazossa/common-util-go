@@ -3,7 +3,7 @@ package mongo
 import (
 	"context"
 
-	"github.com/neazzosa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/monitor/monitor"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 

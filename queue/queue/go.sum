@@ -1,5 +1,5 @@
-github.com/neazzosa/common-util-go/monitor/monitor v1.0.0 h1:JEiTUfkrAFkNWClHhQ+4P9iT4t2uCXXs+1C3S/71qkc=
-github.com/neazzosa/common-util-go/monitor/monitor v1.0.0/go.mod h1:DCGltXRr4lVz74eDvwRpjdYPY/vEX5u6oZQ6Hby3cOE=
+github.com/neazossa/common-util-go/monitor/monitor v1.0.0 h1:JEiTUfkrAFkNWClHhQ+4P9iT4t2uCXXs+1C3S/71qkc=
+github.com/neazossa/common-util-go/monitor/monitor v1.0.0/go.mod h1:DCGltXRr4lVz74eDvwRpjdYPY/vEX5u6oZQ6Hby3cOE=
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=

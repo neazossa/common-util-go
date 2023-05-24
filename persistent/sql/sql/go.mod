@@ -1,5 +1,5 @@
-module github.com/neazzosa/common-util-go/persistent/sql/sql
+module github.com/neazossa/common-util-go/persistent/sql/sql
 
 go 1.20
 
-require github.com/neazzosa/common-util-go/monitor/monitor v1.0.0
+require github.com/neazossa/common-util-go/monitor/monitor v1.0.0

@@ -6,7 +6,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/neazzosa/common-util-go/persistent/sql/sql"
+	"github.com/neazossa/common-util-go/persistent/sql/sql"
 	"github.com/pkg/errors"
 )
 

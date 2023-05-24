@@ -3,7 +3,7 @@ package gomongo
 import (
 	"context"
 
-	"github.com/neazzosa/common-util-go/persistent/nosql/mongo/mongo"
+	"github.com/neazossa/common-util-go/persistent/nosql/mongo/mongo"
 	mgo "go.mongodb.org/mongo-driver/mongo"
 )
 

@@ -7,10 +7,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/go-resty/resty/v2"
-	httpRest "github.com/neazzosa/common-util-go/http/http"
-	"github.com/neazzosa/common-util-go/logger/logger"
-	"github.com/neazzosa/common-util-go/monitor/monitor"
+	httpRest "github.com/neazossa/common-util-go/http/http"
+	"github.com/neazossa/common-util-go/logger/logger"
+	"github.com/neazossa/common-util-go/monitor/monitor"
 )
 
 type (

@@ -1,9 +1,9 @@
-github.com/neazzosa/common-util-go/http/http v1.1.0 h1:cvT+91QQlkM+gr2qnR03tvnZba1r7KBm/+sXF/y1SZ4=
-github.com/neazzosa/common-util-go/http/http v1.1.0/go.mod h1:214L7+uFScx8E9ySgiXUV9NrbwXkUGMEvn1UjTobfcI=
-github.com/neazzosa/common-util-go/logger/logger v1.0.1 h1:faUkC9hNzgzndIFhYVZkXCuGGD5MlzLGZqtRxfwko90=
-github.com/neazzosa/common-util-go/logger/logger v1.0.1/go.mod h1:jniPgeb64fJUT3CYpm3HHdMkmd2L1L/1/UatDZEZBj8=
-github.com/neazzosa/common-util-go/monitor/monitor v1.0.0 h1:JEiTUfkrAFkNWClHhQ+4P9iT4t2uCXXs+1C3S/71qkc=
-github.com/neazzosa/common-util-go/monitor/monitor v1.0.0/go.mod h1:DCGltXRr4lVz74eDvwRpjdYPY/vEX5u6oZQ6Hby3cOE=
+github.com/neazossa/common-util-go/http/http v1.1.0 h1:cvT+91QQlkM+gr2qnR03tvnZba1r7KBm/+sXF/y1SZ4=
+github.com/neazossa/common-util-go/http/http v1.1.0/go.mod h1:214L7+uFScx8E9ySgiXUV9NrbwXkUGMEvn1UjTobfcI=
+github.com/neazossa/common-util-go/logger/logger v1.0.1 h1:faUkC9hNzgzndIFhYVZkXCuGGD5MlzLGZqtRxfwko90=
+github.com/neazossa/common-util-go/logger/logger v1.0.1/go.mod h1:jniPgeb64fJUT3CYpm3HHdMkmd2L1L/1/UatDZEZBj8=
+github.com/neazossa/common-util-go/monitor/monitor v1.0.0 h1:JEiTUfkrAFkNWClHhQ+4P9iT4t2uCXXs+1C3S/71qkc=
+github.com/neazossa/common-util-go/monitor/monitor v1.0.0/go.mod h1:DCGltXRr4lVz74eDvwRpjdYPY/vEX5u6oZQ6Hby3cOE=
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=

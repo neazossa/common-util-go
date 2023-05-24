@@ -3,9 +3,9 @@ package gomongo
 import (
 	"context"
 
-	"github.com/neazzosa/common-util-go/logger/logger"
-	"github.com/neazzosa/common-util-go/monitor/monitor"
-	"github.com/neazzosa/common-util-go/persistent/nosql/mongo/mongo"
+	"github.com/neazossa/common-util-go/logger/logger"
+	"github.com/neazossa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/persistent/nosql/mongo/mongo"
 	mgo "go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

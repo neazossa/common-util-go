@@ -1,8 +1,8 @@
-module github.com/neazzosa/common-util-go/queue/queue
+module github.com/neazossa/common-util-go/queue/queue
 
 go 1.17
 
-require github.com/neazzosa/common-util-go/monitor/monitor v1.0.0
+require github.com/neazossa/common-util-go/monitor/monitor v1.0.0
 
 require (
 	github.com/klauspost/compress v1.15.7 // indirect

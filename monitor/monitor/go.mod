@@ -1,4 +1,4 @@
-module github.com/neazzosa/common-util-go/monitor/monitor
+module github.com/neazossa/common-util-go/monitor/monitor
 
 go 1.20
 

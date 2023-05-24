@@ -3,7 +3,7 @@ package uploader
 import (
 	"context"
 
-	"github.com/neazzosa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/monitor/monitor"
 )
 
 type (

@@ -8,7 +8,7 @@ import (
 	"time"
 
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
-	log "github.com/neazzosa/common-util-go/logger/logger"
+	log "github.com/neazossa/common-util-go/logger/logger"
 	"github.com/sirupsen/logrus"
 )
 

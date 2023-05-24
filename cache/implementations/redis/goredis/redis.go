@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/go-redis/redis"
-	"github.com/neazzosa/common-util-go/cache/cache"
-	"github.com/neazzosa/common-util-go/logger/logger"
-	"github.com/neazzosa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/cache/cache"
+	"github.com/neazossa/common-util-go/logger/logger"
+	"github.com/neazossa/common-util-go/monitor/monitor"
 	"github.com/pkg/errors"
 )
 

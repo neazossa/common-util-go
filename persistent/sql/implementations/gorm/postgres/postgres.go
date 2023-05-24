@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/neazzosa/common-util-go/persistent/sql/sql"
+	"github.com/neazossa/common-util-go/persistent/sql/sql"
 	"gorm.io/gorm/clause"
 
-	"github.com/neazzosa/common-util-go/logger/logger"
-	"github.com/neazzosa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/logger/logger"
+	"github.com/neazossa/common-util-go/monitor/monitor"
 	"github.com/pkg/errors"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

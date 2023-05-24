@@ -7,9 +7,9 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/neazzosa/common-util-go/logger/logger"
-	"github.com/neazzosa/common-util-go/monitor/monitor"
-	"github.com/neazzosa/common-util-go/persistent/nosql/mongo/mongo"
+	"github.com/neazossa/common-util-go/logger/logger"
+	"github.com/neazossa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/persistent/nosql/mongo/mongo"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/bsoncodec"
 	"go.mongodb.org/mongo-driver/bson/bsonrw"

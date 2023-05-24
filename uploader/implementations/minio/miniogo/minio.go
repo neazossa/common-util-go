@@ -6,11 +6,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/neazzosa/common-util-go/logger/logger"
-	"github.com/neazzosa/common-util-go/monitor/monitor"
-	"github.com/neazzosa/common-util-go/uploader/uploader"
+	"github.com/neazossa/common-util-go/logger/logger"
+	"github.com/neazossa/common-util-go/monitor/monitor"
+	"github.com/neazossa/common-util-go/uploader/uploader"
 	"github.com/pkg/errors"
 )
 

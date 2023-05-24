@@ -8,8 +8,8 @@ func getImportTemplate(packageName string) string {
 	return fmt.Sprintf(`package %s
 
 import (
-	"github.com/neazzosa/common-util-go/persistent/sql/sql"
-	"github.com/neazzosa/common-util-go/tools/migrations/postgres"
+	"github.com/neazossa/common-util-go/persistent/sql/sql"
+	"github.com/neazossa/common-util-go/tools/migrations/postgres"
 )
 `, packageName)
 }
