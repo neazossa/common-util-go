@@ -3,6 +3,7 @@ package kafkago
 import (
 	"context"
 	"encoding/json"
+	"github.com/segmentio/kafka-go"
 	"strings"
 	"time"
 

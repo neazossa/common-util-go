@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"github.com/minio/minio-go/v7"
 	"io"
 
 	"github.com/minio/minio-go/v7/pkg/credentials"

@@ -10,6 +10,7 @@ import (
 	httpRest "github.com/neazossa/common-util-go/http/http"
 	"github.com/neazossa/common-util-go/logger/logger"
 	"github.com/neazossa/common-util-go/monitor/monitor"
+	"github.com/go-resty/resty/v2"
 )
 
 type (

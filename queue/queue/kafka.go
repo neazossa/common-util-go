@@ -2,6 +2,7 @@ package queue
 
 import (
 	"context"
+	"github.com/segmentio/kafka-go"
 
 	"github.com/neazossa/common-util-go/monitor/monitor"
 )
