@@ -90,7 +90,7 @@ func (s *SQL) OrWhere(query interface{}, args ...interface{}) sql.ORM {
 }
 
 func (s *SQL) First(result interface{}) error {
-	defer s.doMonitor("GET FIRST", s.connection.DBName, result.(schema.Tabler).TableName())()
+	defer s.doMonitor("GET FIRST", s.connection.DBName, getTableName(result))()
 	db := s.db.First(result)
 
 	if err := db.Error; err != nil {
@@ -105,7 +105,7 @@ func (s *SQL) First(result interface{}) error {
 }
 
 func (s *SQL) All(result interface{}) (int64, error) {
-	defer s.doMonitor("GET ALL", s.connection.DBName, result.(schema.Tabler).TableName())()
+	defer s.doMonitor("GET ALL", s.connection.DBName, getTableName(result))()
 	if s.DryRun {
 		db := s.db.Session(&gorm.Session{DryRun: s.DryRun}).Find(result)
 		s.Logger.Debug(db.Statement.Explain(db.Statement.SQL.String(), db.Statement.Vars...))
@@ -273,9 +273,9 @@ func (s *SQL) Exec(sql string, args ...interface{}) error {
 	return nil
 }
 
-func (s *SQL) RawSql(sql string, object interface{}, args ...interface{}) error {
-	defer s.doMonitor("RAW SQL", s.connection.DBName, object.(schema.Tabler).TableName())()
-	err := s.db.Raw(sql, args).Scan(object).Error
+func (s *SQL) RawSql(rawSql string, object interface{}, args ...interface{}) error {
+	defer s.doMonitor("RAW SQL", s.connection.DBName, getTableName(object))()
+	err := s.db.Raw(rawSql, args).Scan(object).Error
 	if err != nil {
 		return s.captureError(errors.Wrap(err, "failed to fetch raw query result"))
 	}
@@ -283,39 +283,23 @@ func (s *SQL) RawSql(sql string, object interface{}, args ...interface{}) error 
 	return nil
 }
 
-func (s *SQL) FindByQuery(tableName string, selectFields []string, query []sql.Query, result interface{}) sql.ORM {
-	defer s.doMonitor("FIND BY QUERY", s.connection.DBName, tableName)()
-	db := s.db.Table(tableName)
-	if len(selectFields) > 0 {
-		db = db.Select(selectFields)
+func (s *SQL) Scan(dest interface{}) error {
+	defer s.doMonitor("SCAN", s.connection.DBName, getTableName(dest))()
+	err := s.db.Scan(dest).Error
+	if err != nil {
+		return s.captureError(errors.Wrap(err, "failed to scan result"))
 	}
+	return nil
+}
 
+func (s *SQL) QueryBuilder(tableName string, fields []string, query []sql.Query) sql.ORM {
+	db := s.db.Table(tableName)
+	if len(fields) > 0 {
+		db = db.Select(fields)
+	}
 	for _, q := range query {
 		db = db.Where(q.Field+" "+q.Operator+" (?)", q.Value)
 	}
-
-	if s.DryRun {
-		res := db.Session(&gorm.Session{DryRun: true}).Find(result)
-		s.Logger.Debug(res.Statement.SQL.String())
-	}
-	res := db.Find(result)
-
-	if err := res.Error; err != nil {
-		err = errors.Wrapf(err, "failed to find by query %s", result)
-		s.Logger.Error(s.captureError(err))
-		return &SQL{
-			Logger:         s.Logger,
-			db:             db,
-			DryRun:         s.DryRun,
-			isMonitor:      s.isMonitor,
-			monitor:        s.monitor,
-			isCaptureError: s.isCaptureError,
-			ctx:            s.ctx,
-			connection:     s.connection,
-			requestId:      s.requestId,
-		}
-	}
-
 	return &SQL{
 		Logger:         s.Logger,
 		db:             db,
@@ -327,6 +311,25 @@ func (s *SQL) FindByQuery(tableName string, selectFields []string, query []sql.Q
 		connection:     s.connection,
 		requestId:      s.requestId,
 	}
+}
+
+// FindByQuery executes immediately (backward-compatible).
+// For paginated queries, use QueryBuilder(...).Limit(n).Offset(n).All(&result) instead.
+func (s *SQL) FindByQuery(tableName string, selectFields []string, query []sql.Query, result interface{}) sql.ORM {
+	defer s.doMonitor("FIND BY QUERY", s.connection.DBName, tableName)()
+	orm := s.QueryBuilder(tableName, selectFields, query)
+
+	if s.DryRun {
+		mapped := orm.(*SQL)
+		res := mapped.db.Session(&gorm.Session{DryRun: true}).Find(result)
+		s.Logger.Debug(res.Statement.SQL.String())
+	}
+
+	_, err := orm.All(result)
+	if err != nil {
+		s.Logger.Error(err)
+	}
+	return orm
 }
 
 func (s *SQL) FillQuery(tableName string, query []sql.Query) sql.ORM {
@@ -616,10 +619,10 @@ func (s *SQL) finishMonitor(transaction monitor.Transaction) {
 
 func (s *SQL) startMonitor(action string, database, table string) monitor.Transaction {
 	tags := []monitor.Tag{
-		{"requestId", s.requestId},
-		{"action", action},
-		{"database", database},
-		{"table", table},
+		{Key: "requestId", Value: s.requestId},
+		{Key: "action", Value: action},
+		{Key: "database", Value: database},
+		{Key: "table", Value: table},
 	}
 
 	return s.monitor.NewTransactionFromContext(s.ctx, monitor.Tick{

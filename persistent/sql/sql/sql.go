@@ -58,6 +58,7 @@ type (
 		Exec(string, ...interface{}) error
 		RawSql(string, interface{}, ...interface{}) error
 		FindByQuery(string, []string, []Query, interface{}) ORM
+		QueryBuilder(tableName string, fields []string, query []Query) ORM
 		FillQuery(tableName string, query []Query) ORM
 		Count() int64
 		Select([]string) ORM
